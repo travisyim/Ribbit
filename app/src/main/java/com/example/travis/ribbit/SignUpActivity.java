@@ -43,7 +43,7 @@ public class SignUpActivity extends Activity {
                 if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
                     // Error with user inputted fields
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                    builder.setTitle(R.string.error_title_sign_up)
+                    builder.setTitle(R.string.error_title)
                             .setMessage(R.string.error_message_sign_up)
                             .setPositiveButton(android.R.string.ok, null);
 
@@ -74,7 +74,7 @@ public class SignUpActivity extends Activity {
                             else {
                                 // Error!
                                 AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                                builder.setTitle(R.string.error_title_sign_up)
+                                builder.setTitle(R.string.error_title)
                                         .setMessage(e.getMessage())
                                         .setPositiveButton(android.R.string.ok, null);
 

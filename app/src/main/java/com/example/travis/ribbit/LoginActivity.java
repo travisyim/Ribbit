@@ -45,7 +45,7 @@ public class LoginActivity extends Activity {
                 if (username.isEmpty() || password.isEmpty()) {
                     // Error with user inputted fields
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    builder.setTitle(R.string.error_title_login)
+                    builder.setTitle(R.string.error_title)
                             .setMessage(R.string.error_message_login)
                             .setPositiveButton(android.R.string.ok, null);
 
@@ -71,7 +71,7 @@ public class LoginActivity extends Activity {
                             else {
                                 // Error!
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setTitle(R.string.error_title_login)
+                                builder.setTitle(R.string.error_title)
                                         .setMessage(e.getMessage())
                                         .setPositiveButton(android.R.string.ok, null);
 
