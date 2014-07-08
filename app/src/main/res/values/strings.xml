@@ -2,9 +2,6 @@
 <resources>
 
     <string name="app_name">Ribbit</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
@@ -20,5 +17,9 @@
     <string name="error_message_sign_up">Please enter a valid username, password and email address!</string>
     <string name="error_title_login">Error</string>
     <string name="error_message_login">Please enter a valid username and password!</string>
+    <string name="fragment_title_1">Inbox</string>
+    <string name="fragment_title_2">Friends</string>
+    <string name="empty_message_inbox">No new messages!</string>
+    <string name="empty_message_friends">Add friends to begin!</string>
 
 </resources>
