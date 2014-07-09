@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                     else {
                         takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
                         takeVideoIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 10); // Limit does not appear to work
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);
                         takeVideoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0); // 0 for low res - does not appear to work
                         startActivityForResult(takeVideoIntent, TAKE_VIDEO_REQUEST);
                     }
@@ -209,6 +209,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             if (requestCode == PICK_PHOTO_REQUEST || requestCode == PICK_VIDEO_REQUEST) {
                 if (data == null) {
                     Toast.makeText(MainActivity.this, getString(R.string.error_external_storage), Toast.LENGTH_LONG).show();
+                    return;
                 }
                 else {
                     mUri = data.getData();
@@ -224,6 +225,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                     }
                     catch (Exception e) {
                         Toast.makeText(MainActivity.this, getString(R.string.error_file), Toast.LENGTH_LONG).show();
+                        return;
                     }
                     finally {
                         try {
@@ -234,7 +236,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
                     if (fileSize >= FILE_SIZE_MAX) {
                         Toast.makeText(MainActivity.this, getString(R.string.error_file_size), Toast.LENGTH_LONG).show();
-                        mUri = null;
+                        return;
                     }
                 }
             }

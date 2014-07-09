@@ -39,14 +39,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11fc6b13-31bc-4643-a2d1-06ff9f1bda6a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_camera.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Ribbit.iws" />
@@ -73,16 +66,16 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49902153" vertical-offset="510" max-vertical-offset="4777">
-              <caret line="69" column="80" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.73189825" vertical-offset="3451" max-vertical-offset="4811">
+              <caret line="252" column="5" selection-start-line="252" selection-start-column="5" selection-end-line="252" selection-end-column="5" />
               <folding>
                 <element signature="e#1819#1861#0" expanded="true" />
                 <element signature="e#2435#2477#0" expanded="true" />
-                <element signature="e#4215#4261#0" expanded="true" />
-                <element signature="e#4460#4502#0" expanded="true" />
-                <element signature="e#8654#8696#0" expanded="true" />
-                <element signature="e#9266#9296#0" expanded="true" />
-                <element signature="e#9695#9730#0" expanded="true" />
+                <element signature="e#4214#4260#0" expanded="true" />
+                <element signature="e#4459#4501#0" expanded="true" />
+                <element signature="e#8653#8695#0" expanded="true" />
+                <element signature="e#9293#9323#0" expanded="true" />
+                <element signature="e#9754#9789#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1691,7 +1684,11 @@
       <created>1404819820320</created>
       <updated>1404819820320</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="End of &quot;Capturing Photos and Videos&quot;">
+      <created>1404865858115</created>
+      <updated>1404865858115</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1766,7 +1763,8 @@
     <MESSAGE value="End of &quot;Adding Users Using Parse.com&quot;&#10;- Added progress bar to login" />
     <MESSAGE value="End of &quot;Using Fragments for Tabs&quot;" />
     <MESSAGE value="End of &quot;Relating Users in Parse.com&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="End of &quot;Relating Users in Parse.com&quot;" />
+    <MESSAGE value="End of &quot;Capturing Photos and Videos&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of &quot;Capturing Photos and Videos&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1805,11 +1803,11 @@
           <folding>
             <element signature="e#1819#1861#0" expanded="true" />
             <element signature="e#2435#2477#0" expanded="true" />
-            <element signature="e#4215#4261#0" expanded="true" />
-            <element signature="e#4460#4502#0" expanded="true" />
-            <element signature="e#8654#8696#0" expanded="true" />
-            <element signature="e#9266#9296#0" expanded="true" />
-            <element signature="e#9695#9730#0" expanded="true" />
+            <element signature="e#4214#4260#0" expanded="true" />
+            <element signature="e#4459#4501#0" expanded="true" />
+            <element signature="e#8653#8695#0" expanded="true" />
+            <element signature="e#9293#9323#0" expanded="true" />
+            <element signature="e#9754#9789#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2192,16 +2190,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49902153" vertical-offset="510" max-vertical-offset="4777">
-          <caret line="69" column="80" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.73189825" vertical-offset="3451" max-vertical-offset="4811">
+          <caret line="252" column="5" selection-start-line="252" selection-start-column="5" selection-end-line="252" selection-end-column="5" />
           <folding>
             <element signature="e#1819#1861#0" expanded="true" />
             <element signature="e#2435#2477#0" expanded="true" />
-            <element signature="e#4215#4261#0" expanded="true" />
-            <element signature="e#4460#4502#0" expanded="true" />
-            <element signature="e#8654#8696#0" expanded="true" />
-            <element signature="e#9266#9296#0" expanded="true" />
-            <element signature="e#9695#9730#0" expanded="true" />
+            <element signature="e#4214#4260#0" expanded="true" />
+            <element signature="e#4459#4501#0" expanded="true" />
+            <element signature="e#8653#8695#0" expanded="true" />
+            <element signature="e#9293#9323#0" expanded="true" />
+            <element signature="e#9754#9789#0" expanded="true" />
           </folding>
         </state>
       </provider>
