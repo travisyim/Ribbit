@@ -23,5 +23,16 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="action_edit_friends">Edit Friends</string>
     <string name="action_done">Done</string>
+    <string name="action_camera_label">Camera</string>
+    <string name="error_external_storage">There was a problem accessing your device\'s external storage!</string>
+    <string name="error_failed_directory">Failed to create directory</string>
+    <string name="error_file">Error with the file.</string>
+    <string name="error_file_size">Video file is too large!  Please choose another video.</string>
+    <string-array name="camera_options">
+        <item >"Take Photo</item>
+        <item >Take Video</item>
+        <item >Choose Picture</item>
+        <item >Choose Video</item>
+    </string-array>
 
 </resources>
