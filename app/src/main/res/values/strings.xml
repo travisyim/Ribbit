@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Ribbit</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
     <string name="title_activity_login">Login</string>
@@ -28,11 +27,17 @@
     <string name="error_failed_directory">Failed to create directory</string>
     <string name="error_file">Error with the file.</string>
     <string name="error_file_size">Video file is too large!  Please choose another video.</string>
+
     <string-array name="camera_options">
-        <item >"Take Photo</item>
-        <item >Take Video</item>
-        <item >Choose Picture</item>
-        <item >Choose Video</item>
+        <item>"Take Photo</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
     </string-array>
+
+    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="action_send">Send</string>
+    <string name="error_file_message">There is an error with your file.  Please select another file.</string>
+    <string name="error_message_send">There was a problem sending your message.  Please try again.</string>
 
 </resources>

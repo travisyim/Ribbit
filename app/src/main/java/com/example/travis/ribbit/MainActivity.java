@@ -234,7 +234,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                         catch (Exception e) { /* Intentionally left blank */ }
                     }
 
-                    if (fileSize >= FILE_SIZE_MAX) {
+                    if (fileSize > FILE_SIZE_MAX) {
                         Toast.makeText(MainActivity.this, getString(R.string.error_file_size), Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -245,6 +245,19 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                 mediaScanIntent.setData(mUri);
                 sendBroadcast(mediaScanIntent);
             }
+
+            // Show recipient list
+            Intent intent = new Intent(this, RecipientsActivity.class);
+            intent.setData(mUri);
+
+            if (requestCode == TAKE_PHOTO_REQUEST || requestCode == PICK_PHOTO_REQUEST) {
+                intent.putExtra(ParseConstants.KEY_FILE_TYPE, ParseConstants.TYPE_IMAGE);
+            }
+            else {
+                intent.putExtra(ParseConstants.KEY_FILE_TYPE, ParseConstants.TYPE_VIDEO);
+            }
+
+            startActivity(intent);
         }
         else if (resultCode != RESULT_CANCELED) {
             // Error
