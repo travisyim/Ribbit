@@ -30,6 +30,9 @@ public class LoginActivity extends Activity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
+        // Hide the Action Bar
+        getActionBar().hide();
+
         mUsername = (EditText) findViewById(R.id.editTextUsername);
         mPassword = (EditText) findViewById(R.id.editTextPassword);
         mLoginButton = (Button) findViewById(R.id.buttonLogin);

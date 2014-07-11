@@ -20,6 +20,7 @@ public class SignUpActivity extends Activity {
     protected EditText mPassword;
     protected EditText mEmail;
     protected Button mSignUpButton;
+    protected Button mCancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +28,16 @@ public class SignUpActivity extends Activity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_sign_up);
 
+        // Hide the Action Bar
+        getActionBar().hide();
+
         mUsername = (EditText) findViewById(R.id.editTextUsername);
         mPassword = (EditText) findViewById(R.id.editTextPassword);
         mEmail = (EditText) findViewById(R.id.editTextEmail);
         mSignUpButton = (Button) findViewById(R.id.buttonSignUp);
+        mCancelButton = (Button) findViewById(R.id.buttonCancel);
 
+        // SIGN UP button clicked
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +89,14 @@ public class SignUpActivity extends Activity {
                         }
                     });
                 }
+            }
+        });
+
+        // CANCEL button clicked
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
