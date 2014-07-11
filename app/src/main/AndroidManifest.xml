@@ -47,6 +47,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.travis.ribbit.MainActivity" />
         </activity>
+        <activity
+            android:name=".ImageViewerActivity"
+            android:label="@string/title_activity_image_viewer"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.travis.ribbit.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

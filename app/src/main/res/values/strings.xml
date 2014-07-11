@@ -39,5 +39,7 @@
     <string name="action_send">Send</string>
     <string name="error_file_message">There is an error with your file.  Please select another file.</string>
     <string name="error_message_send">There was a problem sending your message.  Please try again.</string>
+    <string name="title_activity_image_viewer">Ribbit</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

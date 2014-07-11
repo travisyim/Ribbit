@@ -281,14 +281,17 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             case R.id.action_logout:
                 ParseUser.logOut();
                 loginScreen();
+                break;
             case R.id.action_edit_friends:
                 Intent intent = new Intent(this, EditFriendsActivity.class);
                 startActivity(intent);
+                break;
             case R.id.action_camera:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setItems(R.array.camera_options, mOnClickListener);
                 AlertDialog alert = builder.create();
                 alert.show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
