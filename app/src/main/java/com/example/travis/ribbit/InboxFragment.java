@@ -16,6 +16,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InboxFragment extends ListFragment {
@@ -43,10 +44,16 @@ public class InboxFragment extends ListFragment {
             public void done(List<ParseObject> parseObjects, ParseException e) {
                 getActivity().setProgressBarIndeterminateVisibility(false);
 
+                mMessages = parseObjects;
+
                 if (e == null) {
-                    mMessages = parseObjects;
-                    MessageAdapter adapter = new MessageAdapter(getListView().getContext(), parseObjects);
-                    setListAdapter(adapter);
+                    if (getListView().getAdapter() == null) {
+                        MessageAdapter adapter = new MessageAdapter(getListView().getContext(), mMessages);
+                        setListAdapter(adapter);
+                    }
+                    else {
+                        ((MessageAdapter)getListView().getAdapter()).refill(mMessages);
+                    }
                 }
             }
         });
@@ -72,6 +79,22 @@ public class InboxFragment extends ListFragment {
             Intent intent = new Intent(Intent.ACTION_VIEW, fileUri);
             intent.setDataAndType(fileUri, "video/*");
             startActivity(intent);
+        }
+
+        // Delete the item/user
+        List<String> ids = message.getList(ParseConstants.KEY_RECIPIENT_IDS);
+
+        if (ids.size() == 1) {
+            // Current user is the only recipient, so delete the message
+            message.deleteInBackground();
+        }
+        else {
+            // Remove the current user from the recipient list
+            ArrayList<String> idsToBeRemoved = new ArrayList<String>();
+            idsToBeRemoved.add(ParseUser.getCurrentUser().getObjectId());
+
+            message.removeAll(ParseConstants.KEY_RECIPIENT_IDS, idsToBeRemoved);
+            message.saveInBackground();
         }
     }
 }

@@ -37,6 +37,7 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
             holder = new ViewHolder();
             holder.imageView = (ImageView) convertView.findViewById(R.id.imageViewMessage);
             holder.textView = (TextView) convertView.findViewById(R.id.textViewSender);
+            convertView.setTag(holder);
         }
         else { // Yes
             holder = (ViewHolder) convertView.getTag();
@@ -61,5 +62,11 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
     private class ViewHolder {
         ImageView imageView;
         TextView textView;
+    }
+
+    public void refill(List<ParseObject> messages) {
+        mMessages.clear();
+        mMessages.addAll(messages);
+        notifyDataSetChanged();
     }
 }
