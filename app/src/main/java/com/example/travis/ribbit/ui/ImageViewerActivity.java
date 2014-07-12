@@ -1,12 +1,12 @@
-package com.example.travis.ribbit;
+package com.example.travis.ribbit.ui;
 
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.example.travis.ribbit.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
@@ -33,13 +33,6 @@ public class ImageViewerActivity extends Activity {
                 finish();
             }
         }, 10*1000);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.image_viewer, menu);
-        return true;
     }
 
     @Override

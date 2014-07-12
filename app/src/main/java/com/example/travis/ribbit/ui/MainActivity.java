@@ -1,4 +1,4 @@
-package com.example.travis.ribbit;
+package com.example.travis.ribbit.ui;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -19,6 +19,9 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.example.travis.ribbit.utils.ParseConstants;
+import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.adapters.SectionsPagerAdapter;
 import com.parse.ParseUser;
 
 import java.io.File;

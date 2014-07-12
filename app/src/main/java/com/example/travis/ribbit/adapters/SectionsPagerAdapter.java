@@ -1,9 +1,13 @@
-package com.example.travis.ribbit;
+package com.example.travis.ribbit.adapters;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
+
+import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.ui.FriendsFragment;
+import com.example.travis.ribbit.ui.InboxFragment;
 
 import java.util.Locale;
 

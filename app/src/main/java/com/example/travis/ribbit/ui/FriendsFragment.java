@@ -1,4 +1,4 @@
-package com.example.travis.ribbit;
+package com.example.travis.ribbit.ui;
 
 import android.app.AlertDialog;
 import android.app.ListFragment;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.example.travis.ribbit.utils.ParseConstants;
+import com.example.travis.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

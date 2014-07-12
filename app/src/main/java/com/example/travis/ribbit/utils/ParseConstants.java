@@ -1,4 +1,4 @@
-package com.example.travis.ribbit;
+package com.example.travis.ribbit.utils;
 
 public final class ParseConstants {
     // Class names
