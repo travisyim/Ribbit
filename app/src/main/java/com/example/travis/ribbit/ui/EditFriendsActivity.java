@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
@@ -68,8 +69,7 @@ public class EditFriendsActivity extends ListActivity {
                     setListAdapter(adapter);
 
                     addFriendCheckmarks();
-                }
-                else {
+                } else {
                     Log.e(TAG, e.getMessage());
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditFriendsActivity.this);
@@ -104,6 +104,16 @@ public class EditFriendsActivity extends ListActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        // Invoke the equivalent of a back button press by telling the activity to finish instead of starting a new parent activity
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onMenuItemSelected(featureId, item);
     }
 
     private void addFriendCheckmarks() {

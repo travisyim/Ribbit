@@ -47,32 +47,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11fc6b13-31bc-4643-a2d1-06ff9f1bda6a" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\res\menu\edit_friends.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\res\menu\image_viewer.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\res\menu\login.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\res\menu\sign_up.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\EditFriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\FriendsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/FriendsFragment.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\ImageViewerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/ImageViewerActivity.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\InboxFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/LoginActivity.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/MainActivity.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\MessageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/adapters/MessageAdapter.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\ParseConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/utils/ParseConstants.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\RecipientsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/RecipientsActivity.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\SectionsPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/adapters/SectionsPagerAdapter.java" />
-      <change type="MOVED" beforePath="C:\Users\Travis\workspace\Ribbit\app\src\main\java\com\example\travis\ribbit\SignUpActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/SignUpActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_friends.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_friends.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_image_viewer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_image_viewer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_recipients.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recipients.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/message_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Ribbit.iws" />
@@ -95,18 +71,7 @@
     <favorites_list name="Ribbit" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ImageViewerActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/ImageViewerActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7027972" vertical-offset="57" max-vertical-offset="629">
-              <caret line="42" column="24" selection-start-line="41" selection-start-column="20" selection-end-line="42" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1210,7 +1175,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/ImageViewerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/RecipientsActivity_Old.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/RecipientsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
@@ -1218,8 +1182,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/adapters/MessageAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/EditFriendsActivity_old.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java" />
       </list>
     </option>
   </component>
@@ -1548,6 +1513,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ribbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ribbit" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1916,7 +1911,11 @@
       <created>1405122446099</created>
       <updated>1405122446099</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="End of &quot;Customizing a ListView for the Inbox&quot;">
+      <created>1405132282788</created>
+      <updated>1405132282788</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1941,7 +1940,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="842" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1957,7 +1956,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33576643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.124087594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.124087594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25067025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1999,7 +1998,8 @@
     <MESSAGE value="End of &quot;Self-Destruction&quot;&#10;- End of &quot;Build a Self-Destructing Message Android App&quot; course" />
     <MESSAGE value="End of &quot;Using Custom Styles and Themes&quot;" />
     <MESSAGE value="End of &quot;Customizing the Action Bar&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="End of &quot;Customizing the Action Bar&quot;" />
+    <MESSAGE value="End of &quot;Customizing a ListView for the Inbox&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of &quot;Customizing a ListView for the Inbox&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2272,28 +2272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/recipients.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/RecipientsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614" vertical-offset="969" max-vertical-offset="3536">
-          <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
-          <folding>
-            <element signature="e#3058#3078#0" expanded="true" />
-            <element signature="e#4245#4265#0" expanded="true" />
-            <element signature="e#4303#4341#0" expanded="true" />
-            <element signature="e#7690#7710#0" expanded="true" />
-            <element signature="e#7752#7790#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2375,31 +2353,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/recipients.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37587413" vertical-offset="1179" max-vertical-offset="1751">
-          <caret line="105" column="75" selection-start-line="105" selection-start-column="75" selection-end-line="105" selection-end-column="75" />
-          <folding>
-            <element signature="e#1244#1465#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#3343#3356#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="431">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/RecipientsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58391607" vertical-offset="856" max-vertical-offset="1785">
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="3536">
+          <caret line="110" column="13" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/ImageViewerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7027972" vertical-offset="57" max-vertical-offset="629">
-          <caret line="42" column="24" selection-start-line="41" selection-start-column="20" selection-end-line="42" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.49475524" vertical-offset="57" max-vertical-offset="629">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/EditFriendsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5244755" vertical-offset="1264" max-vertical-offset="2040">
+          <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+          <folding>
+            <element signature="e#1591#2895#0" expanded="true" />
+            <element signature="e#2609#2629#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#3334#3548#0" expanded="true" />
+            <element signature="e#3537#3538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/travis/ribbit/ui/InboxFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.437063" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="103" column="16" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+          <folding>
+            <element signature="e#1244#1407#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+            <element signature="e#3266#3279#0" expanded="true" />
+            <element signature="e#3512#4203#0" expanded="true" />
+            <element signature="e#4192#4193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

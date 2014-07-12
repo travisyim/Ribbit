@@ -39,7 +39,6 @@ public class InboxFragment extends ListFragment {
             @Override
             public void onRefresh() {
                 refreshMessages();
-                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -52,8 +51,7 @@ public class InboxFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
-        getActivity().setProgressBarIndeterminateVisibility(true);
-
+        mSwipeRefreshLayout.setRefreshing(true);
         refreshMessages();
     }
 
@@ -103,7 +101,7 @@ public class InboxFragment extends ListFragment {
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
-                getActivity().setProgressBarIndeterminateVisibility(false);
+                mSwipeRefreshLayout.setRefreshing(false);
 
                 mMessages = parseObjects;
 
