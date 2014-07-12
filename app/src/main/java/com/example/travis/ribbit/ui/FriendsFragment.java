@@ -3,14 +3,15 @@ package com.example.travis.ribbit.ui;
 import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.example.travis.ribbit.utils.ParseConstants;
 import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -23,6 +24,7 @@ public class FriendsFragment extends ListFragment {
 
     private static final String TAG = FriendsFragment.class.getSimpleName();
 
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
     private List<ParseUser> mFriends;
     private ParseUser mUser;
     private ParseRelation<ParseUser> mFriendsRelation;
@@ -31,6 +33,17 @@ public class FriendsFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshMessages();
+            }
+        });
+
         return rootView;
     }
 
@@ -38,17 +51,20 @@ public class FriendsFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        mSwipeRefreshLayout.setRefreshing(true);
+        refreshMessages();
+    }
+
+    private void refreshMessages() {
         mUser = ParseUser.getCurrentUser();
         mFriendsRelation = mUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
-
-        getActivity().setProgressBarIndeterminateVisibility(true);
 
         ParseQuery<ParseUser> query = mFriendsRelation.getQuery();
         query.addAscendingOrder(ParseConstants.KEY_USERNAME);
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> parseUsers, ParseException e) {
-                getActivity().setProgressBarIndeterminateVisibility(false);
+                mSwipeRefreshLayout.setRefreshing(false);
 
                 if (e == null) {
                     int i = 0;

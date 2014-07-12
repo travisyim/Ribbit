@@ -34,6 +34,7 @@ public class InboxFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -41,8 +42,6 @@ public class InboxFragment extends ListFragment {
                 refreshMessages();
             }
         });
-
-        mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
 
         return rootView;
     }
