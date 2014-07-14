@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.utils.MD5Util;
 import com.parse.ParseUser;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
         if (convertView == null) { // No
             convertView = LayoutInflater.from(mContext).inflate(R.layout.user_item, null);
             holder = new ViewHolder();
-//            holder.imageView = (ImageView) convertView.findViewById(R.id.imageViewMessage);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.imageViewUser);
             holder.textViewUser = (TextView) convertView.findViewById(R.id.textViewUser);
             convertView.setTag(holder);
         }
@@ -42,14 +45,18 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
 
         // Populate icon image and sender name for specific item view
         ParseUser user = mUsers.get(position);
+        String email = user.getEmail().toLowerCase();
 
-        // Set appropriate icon image
-/*        if (user.getString(ParseConstants.KEY_FILE_TYPE).equals(ParseConstants.TYPE_IMAGE)) {
-            holder.imageView.setImageResource(R.drawable.ic_picture);
+        if (email.equals("")) {
+            // Use default picture
+            holder.imageView.setImageResource(R.drawable.avatar_empty);
         }
         else {
-            holder.imageView.setImageResource(R.drawable.ic_video);
-        }*/
+            String hash = MD5Util.md5Hex(email);
+            String gravatarUrl = "http://www.gravatar.com/avatar/" + hash + "?s=204&d=404";
+
+            Picasso.with(mContext).load(gravatarUrl).placeholder(R.drawable.avatar_empty).into(holder.imageView);
+        }
 
         holder.textViewUser.setText(user.getUsername());
 
@@ -57,7 +64,7 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
     }
 
     private class ViewHolder {
-//        ImageView imageView;
+        ImageView imageView;
         TextView textViewUser;
     }
 
