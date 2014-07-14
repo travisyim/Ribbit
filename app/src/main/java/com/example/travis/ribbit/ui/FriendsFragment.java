@@ -1,16 +1,18 @@
 package com.example.travis.ribbit.ui;
 
 import android.app.AlertDialog;
-import android.app.ListFragment;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
 
 import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.adapters.UserAdapter;
 import com.example.travis.ribbit.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -20,11 +22,13 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-public class FriendsFragment extends ListFragment {
+public class FriendsFragment extends Fragment {
 
     private static final String TAG = FriendsFragment.class.getSimpleName();
 
     protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected GridView mGridView;
+
     private List<ParseUser> mFriends;
     private ParseUser mUser;
     private ParseRelation<ParseUser> mFriendsRelation;
@@ -35,8 +39,13 @@ public class FriendsFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
-        mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
+        mGridView = (GridView) rootView.findViewById(R.id.friendsGrid);
 
+        TextView textViewEmpty = (TextView) rootView.findViewById(android.R.id.empty);
+
+        mGridView.setEmptyView(textViewEmpty);
+
+        mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -76,9 +85,13 @@ public class FriendsFragment extends ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                            (getActivity(), android.R.layout.simple_list_item_1, usernames);
-                    setListAdapter(adapter);
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(), mFriends);
+                        mGridView.setAdapter(adapter);
+                    }
+                    else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
+                    }
                 }
                 else {
                     Log.e(TAG, e.getMessage());
