@@ -1,16 +1,20 @@
 package com.example.travis.ribbit.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.adapters.UserAdapter;
 import com.example.travis.ribbit.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -21,9 +25,12 @@ import com.parse.SaveCallback;
 
 import java.util.List;
 
-public class EditFriendsActivity extends ListActivity {
+public class EditFriendsActivity extends Activity {
 
     private static final String TAG = EditFriendsActivity.class.getSimpleName();
+
+    protected GridView mGridView;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
 
     private List<ParseUser> mUsers;
     private ParseUser mUser;
@@ -33,9 +40,21 @@ public class EditFriendsActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.activity_edit_friends);
+        setContentView(R.layout.user_grid);
 
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView = (GridView) findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
+
+        // Link empty TextView
+        TextView textViewEmpty = (TextView) findViewById(android.R.id.empty);
+        mGridView.setEmptyView(textViewEmpty);
+
+        // Setup GridView onItemClick listener
+        mGridView.setOnItemClickListener(mOnItemClickListener);
+
+        // Ignore SwipeRefreshLayout effects
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setEnabled(false);
     }
 
     @Override
@@ -55,19 +74,17 @@ public class EditFriendsActivity extends ListActivity {
                 setProgressBarIndeterminateVisibility(false);
 
                 if (e == null) {
-                    int i = 0;
                     mUsers = parseUsers;
-                    String[] usernames = new String[mUsers.size()];
 
-                    for (ParseUser user : mUsers) {
-                        usernames[i] = user.getUsername();
-                        i++;
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(EditFriendsActivity.this, mUsers);
+                        mGridView.setAdapter(adapter);
+                    }
+                    else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mUsers);
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                            (EditFriendsActivity.this, android.R.layout.simple_list_item_checked, usernames);
-                    setListAdapter(adapter);
-
+                    //Set checkmark status on friends
                     addFriendCheckmarks();
                 } else {
                     Log.e(TAG, e.getMessage());
@@ -78,29 +95,6 @@ public class EditFriendsActivity extends ListActivity {
                             .setPositiveButton(android.R.string.ok, null);
                     AlertDialog alert = builder.create();
                     alert.show();
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        if (getListView().isItemChecked(position)) {
-            // Checked
-            mFriendsRelation.add(mUsers.get(position));
-        }
-        else {
-            // Unchecked
-            mFriendsRelation.remove(mUsers.get(position));
-        }
-
-        mUser.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, e.getMessage());
                 }
             }
         });
@@ -126,7 +120,7 @@ public class EditFriendsActivity extends ListActivity {
 
                         for (ParseUser friend : parseUsers) {
                             if (friend.getObjectId().equals(user.getObjectId())) {
-                                getListView().setItemChecked(i, true);
+                                mGridView.setItemChecked(i, true);
                             }
                         }
                     }
@@ -134,4 +128,32 @@ public class EditFriendsActivity extends ListActivity {
             }
         });
     }
+
+    AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            ImageView imageViewCheckmark = (ImageView) view.findViewById(R.id.imageViewCheckmark);
+
+            // Update checkmark status
+            if (mGridView.isItemChecked(position)) {
+                // Checked - add the friend
+                mFriendsRelation.add(mUsers.get(position));
+                imageViewCheckmark.setVisibility(View.VISIBLE);
+            }
+            else {
+                // Unchecked - remove the friend
+                mFriendsRelation.remove(mUsers.get(position));
+                imageViewCheckmark.setVisibility(View.INVISIBLE);
+            }
+
+            mUser.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e != null) {
+                        Log.e(TAG, e.getMessage());
+                    }
+                }
+            });
+        }
+    };
 }

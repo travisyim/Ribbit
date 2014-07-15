@@ -43,101 +43,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     protected static final int MEDIA_TYPE_IMAGE = 4;
     protected static final int MEDIA_TYPE_VIDEO = 5;
     protected static final int FILE_SIZE_MAX = 1024*1024*10;
-    
-    protected DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
-            switch (i) {
-                case 0: // Take Photo
-                    Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    mUri = getUri(MEDIA_TYPE_IMAGE);
-
-                    if (mUri == null) {
-                        Toast.makeText(MainActivity.this, getString(R.string.error_external_storage), Toast.LENGTH_LONG).show();
-                    }
-                    else {
-                        takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
-                        startActivityForResult(takePhotoIntent, TAKE_PHOTO_REQUEST);
-                    }
-
-                    break;
-                case 1: // Take Video
-                    Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                    mUri = getUri(MEDIA_TYPE_VIDEO);
-
-                    if (mUri == null) {
-                        Toast.makeText(MainActivity.this, getString(R.string.error_external_storage), Toast.LENGTH_LONG).show();
-                    }
-                    else {
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 10); // Limit does not appear to work
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0); // 0 for low res - does not appear to work
-                        startActivityForResult(takeVideoIntent, TAKE_VIDEO_REQUEST);
-                    }
-
-                    break;
-                case 2: // Choose Picture
-                    Intent pickPhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    pickPhotoIntent.setType("image/*");
-                    startActivityForResult(pickPhotoIntent, PICK_PHOTO_REQUEST);
-                    break;
-                case 3: // Choose Video
-                    Intent pickVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    pickVideoIntent.setType("video/*");
-                    Toast.makeText(MainActivity.this, "Video must be less than 10MB.", Toast.LENGTH_LONG).show();
-                    startActivityForResult(pickVideoIntent, PICK_VIDEO_REQUEST);
-                    break;
-            }
-        }
-
-        private Uri getUri(int mediaType) {
-            // Check to see if external storage is mounted
-            if (isExternalStorageMounted()) {
-                // Storage device accessible
-
-                // Connect to the storage device
-                File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory
-                        (Environment.DIRECTORY_PICTURES), MainActivity.this.getString(R.string.app_name));
-
-                // Check to see if the directory exists
-                if (! mediaStorageDir.exists()) {
-                    if (! mediaStorageDir.mkdirs()) {
-                        Log.e(TAG, getString(R.string.error_failed_directory));
-                        return null;
-                    }
-                }
-
-                // Create the file
-                File mediaFile;
-                String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-
-                String path = mediaStorageDir.getPath() + File.separator;
-
-                if (mediaType == MEDIA_TYPE_IMAGE) {
-                    mediaFile = new File(path + "IMG_" + timestamp + ".jpg");
-                }
-                else if (mediaType == MEDIA_TYPE_VIDEO) {
-                    mediaFile = new File(path + "VID_" + timestamp + ".mp4");
-                }
-                else {
-                    return null;
-                }
-
-                Log.d(TAG, "File: " + Uri.fromFile(mediaFile));
-
-                return Uri.fromFile(mediaFile);
-            }
-            else {
-                // Storage device not accessible
-                return null;
-            }
-        }
-
-        private boolean isExternalStorageMounted() {
-            return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-        }
-    };
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -333,4 +238,99 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
+    protected DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            switch (i) {
+                case 0: // Take Photo
+                    Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    mUri = getUri(MEDIA_TYPE_IMAGE);
+
+                    if (mUri == null) {
+                        Toast.makeText(MainActivity.this, getString(R.string.error_external_storage), Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                        startActivityForResult(takePhotoIntent, TAKE_PHOTO_REQUEST);
+                    }
+
+                    break;
+                case 1: // Take Video
+                    Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                    mUri = getUri(MEDIA_TYPE_VIDEO);
+
+                    if (mUri == null) {
+                        Toast.makeText(MainActivity.this, getString(R.string.error_external_storage), Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 10); // Limit does not appear to work
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 5);
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0); // 0 for low res - does not appear to work
+                        startActivityForResult(takeVideoIntent, TAKE_VIDEO_REQUEST);
+                    }
+
+                    break;
+                case 2: // Choose Picture
+                    Intent pickPhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    pickPhotoIntent.setType("image/*");
+                    startActivityForResult(pickPhotoIntent, PICK_PHOTO_REQUEST);
+                    break;
+                case 3: // Choose Video
+                    Intent pickVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    pickVideoIntent.setType("video/*");
+                    Toast.makeText(MainActivity.this, "Video must be less than 10MB.", Toast.LENGTH_LONG).show();
+                    startActivityForResult(pickVideoIntent, PICK_VIDEO_REQUEST);
+                    break;
+            }
+        }
+
+        private Uri getUri(int mediaType) {
+            // Check to see if external storage is mounted
+            if (isExternalStorageMounted()) {
+                // Storage device accessible
+
+                // Connect to the storage device
+                File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory
+                        (Environment.DIRECTORY_PICTURES), MainActivity.this.getString(R.string.app_name));
+
+                // Check to see if the directory exists
+                if (! mediaStorageDir.exists()) {
+                    if (! mediaStorageDir.mkdirs()) {
+                        Log.e(TAG, getString(R.string.error_failed_directory));
+                        return null;
+                    }
+                }
+
+                // Create the file
+                File mediaFile;
+                String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+
+                String path = mediaStorageDir.getPath() + File.separator;
+
+                if (mediaType == MEDIA_TYPE_IMAGE) {
+                    mediaFile = new File(path + "IMG_" + timestamp + ".jpg");
+                }
+                else if (mediaType == MEDIA_TYPE_VIDEO) {
+                    mediaFile = new File(path + "VID_" + timestamp + ".mp4");
+                }
+                else {
+                    return null;
+                }
+
+                Log.d(TAG, "File: " + Uri.fromFile(mediaFile));
+
+                return Uri.fromFile(mediaFile);
+            }
+            else {
+                // Storage device not accessible
+                return null;
+            }
+        }
+
+        private boolean isExternalStorageMounted() {
+            return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+        }
+    };
 }

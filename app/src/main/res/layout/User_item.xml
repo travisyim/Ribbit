@@ -7,12 +7,13 @@
     <ImageView
         android:id="@+id/imageViewUser"
         android:src="@drawable/avatar_empty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"/>
+        style="@style/GridImage"/>
+
+    <ImageView
+        android:id="@+id/imageViewCheckmark"
+        android:src="@drawable/avatar_selected"
+        android:visibility="invisible"
+        style="@style/GridImage"/>
 
     <TextView
         android:id="@+id/textViewUser"

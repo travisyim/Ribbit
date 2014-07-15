@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,7 +36,8 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
         if (convertView == null) { // No
             convertView = LayoutInflater.from(mContext).inflate(R.layout.user_item, null);
             holder = new ViewHolder();
-            holder.imageView = (ImageView) convertView.findViewById(R.id.imageViewUser);
+            holder.imageViewUser = (ImageView) convertView.findViewById(R.id.imageViewUser);
+            holder.imageViewCheckmark = (ImageView) convertView.findViewById(R.id.imageViewCheckmark);
             holder.textViewUser = (TextView) convertView.findViewById(R.id.textViewUser);
             convertView.setTag(holder);
         }
@@ -49,13 +51,21 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
 
         if (email.equals("")) {
             // Use default picture
-            holder.imageView.setImageResource(R.drawable.avatar_empty);
+            holder.imageViewUser.setImageResource(R.drawable.avatar_empty);
         }
         else {
             String hash = MD5Util.md5Hex(email);
             String gravatarUrl = "http://www.gravatar.com/avatar/" + hash + "?s=204&d=404";
 
-            Picasso.with(mContext).load(gravatarUrl).placeholder(R.drawable.avatar_empty).into(holder.imageView);
+            Picasso.with(mContext).load(gravatarUrl).placeholder(R.drawable.avatar_empty).into(holder.imageViewUser);
+        }
+
+        // Set checkmark status if previously checked
+        if (((GridView)parent).isItemChecked(position)) {
+            holder.imageViewCheckmark.setVisibility(View.VISIBLE);
+        }
+        else {
+            holder.imageViewCheckmark.setVisibility(View.INVISIBLE);
         }
 
         holder.textViewUser.setText(user.getUsername());
@@ -64,7 +74,8 @@ public class UserAdapter extends ArrayAdapter<ParseUser> {
     }
 
     private class ViewHolder {
-        ImageView imageView;
+        ImageView imageViewUser;
+        ImageView imageViewCheckmark;
         TextView textViewUser;
     }
 

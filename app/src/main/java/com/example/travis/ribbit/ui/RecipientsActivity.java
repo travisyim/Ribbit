@@ -1,19 +1,23 @@
 package com.example.travis.ribbit.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travis.ribbit.R;
+import com.example.travis.ribbit.adapters.UserAdapter;
 import com.example.travis.ribbit.utils.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -30,11 +34,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipientsActivity extends ListActivity {
+public class RecipientsActivity extends Activity {
 
     private static final String TAG = RecipientsActivity.class.getSimpleName();
 
     protected MenuItem mMenuItem;
+    protected GridView mGridView;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
 
     private List<ParseUser> mFriends;
     private ParseUser mUser;
@@ -46,9 +52,21 @@ public class RecipientsActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.activity_recipients);
+        setContentView(R.layout.user_grid);
 
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView = (GridView) findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
+
+        // Link empty TextView
+        TextView textViewEmpty = (TextView) findViewById(android.R.id.empty);
+        mGridView.setEmptyView(textViewEmpty);
+
+        // Setup GridView onItemClick listener
+        mGridView.setOnItemClickListener(mOnItemClickListener);
+
+        // Ignore SwipeRefreshLayout effects
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setEnabled(false);
 
         mUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
@@ -71,18 +89,15 @@ public class RecipientsActivity extends ListActivity {
                 setProgressBarIndeterminateVisibility(false);
 
                 if (e == null) {
-                    int i = 0;
                     mFriends = parseUsers;
-                    String[] usernames = new String[mFriends.size()];
 
-                    for (ParseUser user : mFriends) {
-                        usernames[i] = user.getUsername();
-                        i++;
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(RecipientsActivity.this, mFriends);
+                        mGridView.setAdapter(adapter);
                     }
-
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                            (RecipientsActivity.this, android.R.layout.simple_list_item_checked, usernames);
-                    setListAdapter(adapter);
+                    else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
+                    }
                 }
                 else {
                     Log.e(TAG, e.getMessage());
@@ -137,18 +152,6 @@ public class RecipientsActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        if (l.getCheckedItemCount() > 0) {
-            mMenuItem.setVisible(true);
-        }
-        else {
-            mMenuItem.setVisible(false);
-        }
-    }
-
     private ParseObject createMessage() {
         ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES);
         String fileName = mUri.getLastPathSegment();
@@ -175,8 +178,8 @@ public class RecipientsActivity extends ListActivity {
     private ArrayList<String> getRecipientIds() {
         ArrayList<String> recipientIds = new ArrayList<String>();
 
-        for (int i = 0; i < getListView().getCount(); i++) {
-            if (getListView().isItemChecked(i)) {
+        for (int i = 0; i < mGridView.getCount(); i++) {
+            if (mGridView.isItemChecked(i)) {
                 recipientIds.add(mFriends.get(i).getObjectId());
             }
         }
@@ -193,7 +196,7 @@ public class RecipientsActivity extends ListActivity {
             inputStream = getContentResolver().openInputStream(mUri);
             bos = new ByteArrayOutputStream();
             byte[] b = new byte[1024*8];
-            int bytesRead = 0;
+            int bytesRead;
 
             while ((bytesRead = inputStream.read(b)) != -1) {
                 bos.write(b, 0, bytesRead);
@@ -234,4 +237,29 @@ public class RecipientsActivity extends ListActivity {
             }
         });
     }
+
+    AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            ImageView imageViewCheckmark = (ImageView) view.findViewById(R.id.imageViewCheckmark);
+
+            // Determine whether to show the "Send" menu icon
+            if (mGridView.getCheckedItemCount() > 0) {
+                mMenuItem.setVisible(true);
+            }
+            else {
+                mMenuItem.setVisible(false);
+            }
+
+            // Update checkmark status
+            if (mGridView.isItemChecked(position)) {
+                // Check
+                imageViewCheckmark.setVisibility(View.VISIBLE);
+            }
+            else {
+                // Uncheck
+                imageViewCheckmark.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
 }

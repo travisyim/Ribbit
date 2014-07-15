@@ -36,13 +36,13 @@ public class FriendsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
+        View rootView = inflater.inflate(R.layout.user_grid, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
         mGridView = (GridView) rootView.findViewById(R.id.friendsGrid);
 
+        // Link empty TextView
         TextView textViewEmpty = (TextView) rootView.findViewById(android.R.id.empty);
-
         mGridView.setEmptyView(textViewEmpty);
 
         mSwipeRefreshLayout.setColorScheme(R.color.swipe_refresh1, R.color.swipe_refresh2, R.color.swipe_refresh3, R.color.swipe_refresh4);
@@ -76,14 +76,7 @@ public class FriendsFragment extends Fragment {
                 mSwipeRefreshLayout.setRefreshing(false);
 
                 if (e == null) {
-                    int i = 0;
                     mFriends = parseUsers;
-                    String[] usernames = new String[mFriends.size()];
-
-                    for (ParseUser user : mFriends) {
-                        usernames[i] = user.getUsername();
-                        i++;
-                    }
 
                     if (mGridView.getAdapter() == null) {
                         UserAdapter adapter = new UserAdapter(getActivity(), mFriends);
